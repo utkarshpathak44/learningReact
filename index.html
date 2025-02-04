@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React 18 Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script>
+      const rootElement = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootElement);
+
+      // Button element
+      const button = React.createElement(
+        "button",
+        {
+          type: "button",
+        },
+        "Open"
+      );
+
+      const article = React.createElement(
+        "article",
+        null,
+        React.createElement("h2", null, "React Article"),
+        React.createElement("img", {
+          src: "",
+          alt: "Placeholder",
+        }),
+        React.createElement(
+          "p",
+          null,
+          "This is a simple article generated using React."
+        ),
+        button
+      );
+
+      const container = React.createElement("div", null, article, article);
+      root.render(container);
+    </script>
+  </body>
+</html>
