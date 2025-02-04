@@ -15,17 +15,79 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
+      // JSX for the article
       const article = (
         <div>
-          <h1>article</h1>
-          <p>this is a paragraph from the text</p>
-          <button>open</button>
+          <h1>Article</h1>
+          <p>This is a paragraph from the text.</p>
+          <button>Open</button>
         </div>
       );
-      ReactDOM.render(article, document.getElementById("root"));
+
+      // JSX for the footer
+      const footer = (
+        <footer>
+          <div>
+            <ul>
+              <li>Random</li>
+              <li>Random</li>
+              <li>Random</li>
+              <li>
+                <input
+                  type="text"
+                  maxLength="10"
+                  aria-label="this is a random input"
+                  className="emailInput"
+                  //   readOnly
+                />
+              </li>
+            </ul>
+          </div>
+        </footer>
+      );
+
+      // Using React 18 createRoot
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      const Header = ({ pageName }) => {
+        return (
+          <div>
+            <div>{pageName}</div>
+            <ul>
+              <li>home</li>
+              <li>about</li>
+              <li>services</li>
+              <li>help</li>
+            </ul>
+          </div>
+        );
+      };
+
+      const AccessPropsDirectly = (props) => {
+        return props.isValue == true ? (
+          <p>this is the right way</p>
+        ) : (
+          <p>this isnt the right way</p>
+        );
+      };
+
+      // Rendering both article and footer
+      root.render(
+        <>
+          <Header pageName="documents" />
+          {article}
+          {footer}
+          <AccessPropsDirectly isValue={false} />
+        </>
+      );
     </script>
   </body>
 </html>
+<!-- we can interpolate the values in jsx using the setInterval-->
+<!-- const interval=setInterval(()=>{console.log("hello") },30) -->
+<!-- components -->
+<!-- functional approach, pure functions -->
+<!-- props -->
+<!-- prop drilling -->
